@@ -12,10 +12,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity  implements NavigationView.OnNavigationItemSelectedListener {
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.UUID;
+
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     MediaPlayer hi, bye;
-    Analytics analytics= new Analytics();
+    Analytics analytics = new Analytics();
+    FirebaseDatabase database;
+    DatabaseReference myRef;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,10 +40,12 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
-        hi = MediaPlayer.create(MainActivity.this,R.raw.hi);
-        bye = MediaPlayer.create(MainActivity.this,R.raw.bye);
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("Feedback");
+        hi = MediaPlayer.create(MainActivity.this, R.raw.hi);
+        bye = MediaPlayer.create(MainActivity.this, R.raw.bye);
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -64,7 +74,7 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        /*if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
@@ -76,12 +86,13 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
 
         } else if (id == R.id.nav_send) {
 
-        }
+        }*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -93,14 +104,16 @@ public class MainActivity extends AppCompatActivity  implements NavigationView.O
     }
 
 
-    public void helloClicked(View view)
-    {
+    public void helloClicked(View view) {
         hi.start();
         analytics.sendAnalytics(this, "HI");
+
+        myRef.child(UUID.randomUUID().toString()).setValue("Hello, World!");
     }
-    public void byeClicked(View view)
-    {
+
+    public void byeClicked(View view) {
         bye.start();
         analytics.sendAnalytics(this, "BYE");
+        myRef.child(UUID.randomUUID().toString()).setValue("Bye!");
     }
 }
