@@ -20,9 +20,9 @@ public class Analytics {
     {
         firebaseAnalytics = FirebaseAnalytics.getInstance(context);
         Bundle bundle_analytics = new Bundle();
-        bundle_analytics.putString(FirebaseAnalytics.Param.ITEM_ID, "ITEM_ID:" + content_type);
-        bundle_analytics.putString(FirebaseAnalytics.Param.ITEM_NAME, "ITEM_NAME:" + content_type);
-        bundle_analytics.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "CONTENT_TYPE:" + content_type);
+        bundle_analytics.putString(FirebaseAnalytics.Param.ITEM_ID, "ITEM_ID: " + content_type);
+        bundle_analytics.putString(FirebaseAnalytics.Param.ITEM_NAME, "ITEM_NAME: " + content_type);
+        bundle_analytics.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "CONTENT_TYPE: " + content_type);
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle_analytics);
     }
 

@@ -1,6 +1,8 @@
 package com.example.jlam.cobrakaisoundboard;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Handler;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -11,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Analytics analytics = new Analytics();
     FirebaseDatabase database;
     DatabaseReference myRef;
+    boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,9 +45,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
 
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("Feedback");
+        myRef = database.getReference("Home Page");
         hi = MediaPlayer.create(MainActivity.this, R.raw.hi);
         bye = MediaPlayer.create(MainActivity.this, R.raw.bye);
+
+        analytics.sendAnalytics(this, "Open App");
+
     }
 
     @Override
@@ -74,6 +81,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        if (id == R.id.nav_feedback) {
+            Intent i = new Intent(getApplicationContext(), Feedback.class);
+            startActivity(i);
+        } else if (id == R.id.nav_home) {
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+        }
+
         /*if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
@@ -99,7 +114,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+
+
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                return;
+            }
+
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Click back again to exit.", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce = false;
+                }
+            }, 2000);
         }
     }
 
@@ -108,12 +139,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         hi.start();
         analytics.sendAnalytics(this, "HI");
 
-        myRef.child(UUID.randomUUID().toString()).setValue("Hello, World!");
+        myRef.child(System.currentTimeMillis() / 1000L + UUID.randomUUID().toString()).setValue("Hello, World!");
     }
 
     public void byeClicked(View view) {
         bye.start();
         analytics.sendAnalytics(this, "BYE");
-        myRef.child(UUID.randomUUID().toString()).setValue("Bye!");
+        myRef.child(System.currentTimeMillis() / 1000L + UUID.randomUUID().toString()).setValue("Bye!");
     }
 }
