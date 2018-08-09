@@ -1,6 +1,7 @@
 package com.example.jlam.cobrakaisoundboard;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -68,7 +69,6 @@ public class Feedback extends AppCompatActivity implements NavigationView.OnNavi
         }
 
 
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -79,9 +79,12 @@ public class Feedback extends AppCompatActivity implements NavigationView.OnNavi
 
         if (!editText_feedBack.getText().toString().equals("")) {
             analytics.sendAnalytics(this, "Open App");
-            myRef.child(System.currentTimeMillis() / 1000L + UUID.randomUUID().toString()).setValue(editText_feedBack.getText().toString());
+            myRef.child(System.currentTimeMillis() / 1000L + UUID.randomUUID().toString()).setValue(editText_feedBack.getText().toString()
+                    + Build.MANUFACTURER.substring(0, 1).toUpperCase() + Build.MANUFACTURER.substring(1) + " - " + Build.MODEL
+                    + BuildConfig.VERSION_NAME + ", " + BuildConfig.VERSION_CODE
+                    + Build.VERSION.RELEASE);
             Toast.makeText(this, "Thank you for your feedback.", Toast.LENGTH_SHORT).show();
-             Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
 
 
@@ -89,7 +92,6 @@ public class Feedback extends AppCompatActivity implements NavigationView.OnNavi
             Toast.makeText(this, "Please write a feedback.", Toast.LENGTH_SHORT).show();
         }
     }
-
 
 
     @Override
