@@ -80,9 +80,9 @@ public class Feedback extends AppCompatActivity implements NavigationView.OnNavi
         if (!editText_feedBack.getText().toString().equals("")) {
             analytics.sendAnalytics(this, "Open App");
             myRef.child(System.currentTimeMillis() / 1000L + UUID.randomUUID().toString()).setValue(editText_feedBack.getText().toString()
-                    + Build.MANUFACTURER.substring(0, 1).toUpperCase() + Build.MANUFACTURER.substring(1) + " - " + Build.MODEL
-                    + BuildConfig.VERSION_NAME + ", " + BuildConfig.VERSION_CODE
-                    + Build.VERSION.RELEASE);
+                    +"///"+ Build.MANUFACTURER.substring(0, 1).toUpperCase() + Build.MANUFACTURER.substring(1) + " - " + Build.MODEL
+                    +"///"+ BuildConfig.VERSION_NAME + ", " + BuildConfig.VERSION_CODE
+                    +"///"+ Build.VERSION.RELEASE);
             Toast.makeText(this, "Thank you for your feedback.", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
