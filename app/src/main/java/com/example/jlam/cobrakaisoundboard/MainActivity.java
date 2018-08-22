@@ -1,6 +1,7 @@
 package com.example.jlam.cobrakaisoundboard;
 
 import android.content.Intent;
+import android.graphics.Rect;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -11,6 +12,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -31,11 +34,13 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    RecyclerView mRecyclerView;
     MediaPlayer hi, bye;
     Analytics analytics = new Analytics();
     FirebaseDatabase database;
     DatabaseReference myRef;
     boolean doubleBackToExitPressedOnce = false;
+    int[] voiceList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +60,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("Home Page");
+
+        mRecyclerView = findViewById(R.id.recyclerview);
+        GridLayoutManager mGridLayoutManager = new GridLayoutManager(MainActivity.this, 3);
+        mRecyclerView.setLayoutManager(mGridLayoutManager);
+
+        voiceList = new int[]{R.drawable.hi, R.drawable.bye, R.drawable.hi,
+                R.drawable.bye, R.drawable.hi,R.drawable.bye, R.drawable.hi,R.drawable.bye,
+                R.drawable.hi,R.drawable.bye, R.drawable.hi,R.drawable.bye, R.drawable.hi,R.drawable.bye,
+                R.drawable.hi,R.drawable.bye, R.drawable.hi,R.drawable.bye, R.drawable.hi,R.drawable.bye,
+                R.drawable.hi,R.drawable.bye, R.drawable.hi,R.drawable.bye, R.drawable.hi,R.drawable.bye,
+                R.drawable.hi,R.drawable.bye};
+
+        MyAdapter myAdapter = new MyAdapter(MainActivity.this, voiceList);
+
+
+
+        mRecyclerView.setAdapter(myAdapter).;
+
         hi = MediaPlayer.create(MainActivity.this, R.raw.hi);
         bye = MediaPlayer.create(MainActivity.this, R.raw.bye);
 
@@ -144,7 +167,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    public void helloClicked(View view) {
+    /*public void helloClicked(View view) {
         hi.start();
         analytics.sendAnalytics(this, "HI");
 
@@ -156,9 +179,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bye.start();
         analytics.sendAnalytics(this, "BYE");
         myRef.child(System.currentTimeMillis() / 1000L + UUID.randomUUID().toString()).setValue("Bye!");
-    }
-
-
-
-
+    }*/
 }

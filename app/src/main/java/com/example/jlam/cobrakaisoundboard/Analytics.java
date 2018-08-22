@@ -25,5 +25,4 @@ public class Analytics {
         bundle_analytics.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "CONTENT_TYPE: " + content_type);
         firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle_analytics);
     }
-
 }
