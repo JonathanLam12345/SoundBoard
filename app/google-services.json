@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:647423676612:android:cb5ab5d6a7835ed6",
+        "mobilesdk_app_id": "1:647423676612:android:32c3d2376e7b39f6",
         "android_client_info": {
-          "package_name": "com.example.jlam.cobrakaisoundboard"
+          "package_name": "com.soundboard.jlam.cobrakaisoundboard"
         }
       },
       "oauth_client": [
