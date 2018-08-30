@@ -49,9 +49,9 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
-    AdView adView_developer, adView_user;
-    Button button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, button_10, button_11, button_12, button_13, button_14, button_15;
-    MediaPlayer one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen;
+    AdView adView_developer;//, adView_user;
+    Button button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, button_10, button_11, button_12, button_13, button_14, button_15, button_16, button_17, button_18;
+    MediaPlayer one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen;
     Analytics analytics = new Analytics();
     FirebaseDatabase database;
     DatabaseReference myRef;
@@ -168,6 +168,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fifteen = null;
                 fifteen = MediaPlayer.create(MainActivity.this, R.raw.fifteen);
             }
+            else if (sixteen.isPlaying())
+            {
+                sixteen.stop();
+                sixteen.release();
+                sixteen = null;
+                sixteen = MediaPlayer.create(MainActivity.this, R.raw.sixteen);
+            }
+            else if (seventeen.isPlaying())
+            {
+                seventeen.stop();
+                seventeen.release();
+                seventeen = null;
+                seventeen = MediaPlayer.create(MainActivity.this, R.raw.seventeen);
+            }
+            else if (eighteen.isPlaying())
+            {
+                eighteen.stop();
+                eighteen.release();
+                eighteen = null;
+                eighteen = MediaPlayer.create(MainActivity.this, R.raw.eighteen);
+            }
         } catch (Exception e)
         {
             e.printStackTrace();
@@ -191,33 +212,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, PERMISSION_READ_STATE);
         }
 
-       if(Analytics.isDeveloper)   //Developer Ad
-       { //https://www.youtube.com/watch?v=w7muIkMYE_A
-           //test ad: ca-app-pub-3940256099942544/6300978111
-           //my admob: ca-app-pub-7448660774088972/5467742818
+        /////////////////////////////////////////////////////////////////////
+        //https://www.youtube.com/watch?v=w7muIkMYE_A
+        // (me) For developer: "ca-app-pub-3940256099942544/6300978111"
+        //($$$) For User: "ca-app-pub-7448660774088972/5467742818"
 
-           adView_user = (AdView) findViewById(R.id.adView_user);
-           adView_user.setVisibility(View.GONE);
-           adView_user.setVisibility(View.INVISIBLE);
+        MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
+        adView_developer = (AdView) findViewById(R.id.adView_developer);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView_developer.loadAd(adRequest);
 
-           MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
-           adView_developer = (AdView) findViewById(R.id.adView_developer);
-           AdRequest adRequest = new AdRequest.Builder().build();
-           adView_developer.loadAd(adRequest);
-       }
-       else    //User Ad
-       {
-           adView_developer = (AdView) findViewById(R.id.adView_developer);
-           adView_developer.setVisibility(View.GONE);
-           adView_developer.setVisibility(View.INVISIBLE);
-
-           MobileAds.initialize(this, "ca-app-pub-7448660774088972/5467742818");
-           adView_user = (AdView) findViewById(R.id.adView_user);
-           AdRequest adRequest = new AdRequest.Builder().build();
-           adView_user.loadAd(adRequest);
-       }
-
-
+        //////////////////////////////////////////////////////////////////////
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -245,6 +250,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         thirteen = MediaPlayer.create(MainActivity.this, R.raw.thirteen);
         fourteen = MediaPlayer.create(MainActivity.this, R.raw.fourteen);
         fifteen = MediaPlayer.create(MainActivity.this, R.raw.fifteen);
+        sixteen = MediaPlayer.create(MainActivity.this, R.raw.sixteen);
+        seventeen = MediaPlayer.create(MainActivity.this, R.raw.seventeen);
+        eighteen = MediaPlayer.create(MainActivity.this, R.raw.eighteen);
 
         button_1 = findViewById(R.id.button_1);
         button_1.setOnClickListener(new View.OnClickListener()
@@ -531,12 +539,68 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        button_16 = findViewById(R.id.button_16);
+        button_16.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                stopPlayingPlease();
+                sixteen.start();
+
+                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+                if (isConnected && (!Analytics.isDeveloper))
+                {
+                    analytics.sendAnalytics(mContext, "16");
+                }
+            }
+        });
+        button_17 = findViewById(R.id.button_17);
+        button_17.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                stopPlayingPlease();
+                seventeen.start();
+
+                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+                if (isConnected && (!Analytics.isDeveloper))
+                {
+                    analytics.sendAnalytics(mContext, "17");
+                }
+            }
+        });
+
+        button_18 = findViewById(R.id.button_18);
+        button_18.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                stopPlayingPlease();
+                eighteen.start();
+
+                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+                if (isConnected && (!Analytics.isDeveloper))
+                {
+                    analytics.sendAnalytics(mContext, "17");
+                }
+            }
+        });
+
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
         if (isConnected && (!Analytics.isDeveloper))
         {
-        analytics.sendAnalytics(this, "Open App");
+            analytics.sendAnalytics(this, "Open App");
         }
 
     }

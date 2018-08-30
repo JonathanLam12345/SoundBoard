@@ -167,7 +167,7 @@
                     android:layout_weight="1"
                     android:baselineAligned="false"
                     android:padding="3dip"
-                    android:text="Trying to Run a Dojo Next Door!"/>
+                    android:text="Quiet! Trying to Run a Dojo Next Door!"/>
 
                 <Button
                     android:id="@+id/button_14"
@@ -191,7 +191,6 @@
             </TableRow>
 
             <TableRow>
-
                 <Button
                     android:id="@+id/button_16"
                     android:layout_width="70dp"
@@ -222,7 +221,100 @@
                     android:padding="3dip"
                     android:text="Fighting Positions!"/>
             </TableRow>
+            <TableRow>
+                <Button
+                    android:id="@+id/button_19"
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:baselineAligned="false"
+                    android:padding="3dip"
+                    android:text="Nice Shirt"/>
 
+                <Button
+                    android:id="@+id/button_20"
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:baselineAligned="false"
+                    android:padding="3dip"
+                    android:text="I See Losers &amp; Nerds"/>
+
+                <Button
+                    android:id="@+id/button_21"
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:baselineAligned="false"
+                    android:padding="3dip"
+                    android:text="Fighting Positions!"/>
+            </TableRow>
+            <TableRow>
+                <Button
+                    android:id="@+id/button_22"
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:baselineAligned="false"
+                    android:padding="3dip"
+                    android:text="Nice Shirt"/>
+
+                <Button
+                    android:id="@+id/button_23"
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:baselineAligned="false"
+                    android:padding="3dip"
+                    android:text="I See Losers &amp; Nerds"/>
+
+                <Button
+                    android:id="@+id/button_24"
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:baselineAligned="false"
+                    android:padding="3dip"
+                    android:text="Fighting Positions!"/>
+            </TableRow>
+            <TableRow>
+                <Button
+                    android:id="@+id/button_25"
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="left"
+                    android:layout_weight="1"
+                    android:baselineAligned="false"
+                    android:padding="3dip"
+                    android:text="Nice Shirt"/>
+
+                <Button
+                    android:id="@+id/button_26"
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:baselineAligned="false"
+                    android:padding="3dip"
+                    android:text="I See Losers &amp; Nerds"/>
+
+                <Button
+                    android:id="@+id/button_27"
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="right"
+                    android:layout_weight="1"
+                    android:baselineAligned="false"
+                    android:padding="3dip"
+                    android:text="Fighting Positions!"/>
+            </TableRow>
+       
         </TableLayout>
     </ScrollView>
 
@@ -231,10 +323,7 @@
         android:id="@+id/layoutContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="10dp"
+
         android:orientation="vertical">
 
         <com.google.android.gms.ads.AdView
@@ -248,15 +337,7 @@
             ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
         </com.google.android.gms.ads.AdView>
 
-        <com.google.android.gms.ads.AdView
-            xmlns:ads="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/adView_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-7448660774088972/5467742818">
-        </com.google.android.gms.ads.AdView>
+        <!-- (me) For developer: "ca-app-pub-3940256099942544/6300978111" -->
+        <!-- ($$$) For User: "ca-app-pub-7448660774088972/5467742818" -->
     </LinearLayout>
 </LinearLayout>
