@@ -34,9 +34,9 @@
                                   <option name="values">
                                     <map>
                                       <entry key="backgroundAssetType" value="COLOR" />
-                                      <entry key="backgroundColor" value="00ced1" />
-                                      <entry key="foregroundImage" value="C:\Users\Jonathan Lam\Documents\GitHub\SoundBoard\app\src\main\res\drawable-xxxhdpi\johnny_lawrence_2018.png" />
-                                      <entry key="foregroundLayerName" value="ic_launcher_johnny" />
+                                      <entry key="backgroundColor" value="000000" />
+                                      <entry key="foregroundImage" value="C:\Users\Jonathan Lam\Desktop\cobrakai.jpg" />
+                                      <entry key="foregroundLayerName" value="ic_cobrakai" />
                                       <entry key="legacyIconShape" value="NONE" />
                                     </map>
                                   </option>

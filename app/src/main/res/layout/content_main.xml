@@ -230,7 +230,7 @@
                     android:layout_weight="1"
                     android:baselineAligned="false"
                     android:padding="3dip"
-                    android:text="Nice Shirt"/>
+                    android:text="In The Real World "/>
 
                 <Button
                     android:id="@+id/button_20"
@@ -240,7 +240,7 @@
                     android:layout_weight="1"
                     android:baselineAligned="false"
                     android:padding="3dip"
-                    android:text="I See Losers &amp; Nerds"/>
+                    android:text="Cobra Kai Is About Strength!"/>
 
                 <Button
                     android:id="@+id/button_21"
@@ -250,7 +250,7 @@
                     android:layout_weight="1"
                     android:baselineAligned="false"
                     android:padding="3dip"
-                    android:text="Fighting Positions!"/>
+                    android:text="I Had To Shed My Loser Skin"/>
             </TableRow>
             <TableRow>
                 <Button
@@ -261,7 +261,7 @@
                     android:layout_weight="1"
                     android:baselineAligned="false"
                     android:padding="3dip"
-                    android:text="Nice Shirt"/>
+                    android:text="Welcome to Cobra Kai"/>
 
                 <Button
                     android:id="@+id/button_23"
@@ -271,7 +271,7 @@
                     android:layout_weight="1"
                     android:baselineAligned="false"
                     android:padding="3dip"
-                    android:text="I See Losers &amp; Nerds"/>
+                    android:text="All That Matters Is That You Become Bada*s!!"/>
 
                 <Button
                     android:id="@+id/button_24"
@@ -281,7 +281,7 @@
                     android:layout_weight="1"
                     android:baselineAligned="false"
                     android:padding="3dip"
-                    android:text="Fighting Positions!"/>
+                    android:text="Fear doesn't Exist In This Dojo!"/>
             </TableRow>
             <TableRow>
                 <Button
@@ -292,7 +292,7 @@
                     android:layout_weight="1"
                     android:baselineAligned="false"
                     android:padding="3dip"
-                    android:text="Nice Shirt"/>
+                    android:text="Pain doesn't Exist In This Dojo!"/>
 
                 <Button
                     android:id="@+id/button_26"
@@ -302,7 +302,7 @@
                     android:layout_weight="1"
                     android:baselineAligned="false"
                     android:padding="3dip"
-                    android:text="I See Losers &amp; Nerds"/>
+                    android:text="Defeat doesn't Exist In This Dojo!"/>
 
                 <Button
                     android:id="@+id/button_27"
@@ -312,9 +312,9 @@
                     android:layout_weight="1"
                     android:baselineAligned="false"
                     android:padding="3dip"
-                    android:text="Fighting Positions!"/>
+                    android:text="Are You Ready To Learn The Way Of The Fist?"/>
             </TableRow>
-       
+
         </TableLayout>
     </ScrollView>
 

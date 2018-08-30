@@ -50,8 +50,8 @@ import java.util.UUID;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
     AdView adView_developer;//, adView_user;
-    Button button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, button_10, button_11, button_12, button_13, button_14, button_15, button_16, button_17, button_18;
-    MediaPlayer one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen;
+    Button button_1, button_2, button_3, button_4, button_5, button_6, button_7, button_8, button_9, button_10, button_11, button_12, button_13, button_14, button_15, button_16, button_17, button_18, button_19, button_20, button_21, button_22, button_23, button_24, button_25, button_26, button_27;
+    MediaPlayer one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty, twentyone, twentytwo, twentythree, twentyfour, twentyfive, twentysix, twentyseven;
     Analytics analytics = new Analytics();
     FirebaseDatabase database;
     DatabaseReference myRef;
@@ -189,6 +189,69 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 eighteen = null;
                 eighteen = MediaPlayer.create(MainActivity.this, R.raw.eighteen);
             }
+            else if (nineteen.isPlaying())
+            {
+                nineteen.stop();
+                nineteen.release();
+                nineteen = null;
+                nineteen = MediaPlayer.create(MainActivity.this, R.raw.nineteen);
+            }
+            else if (twenty.isPlaying())
+            {
+                twenty.stop();
+                twenty.release();
+                twenty = null;
+                twenty = MediaPlayer.create(MainActivity.this, R.raw.twenty);
+            }
+            else if (twentyone.isPlaying())
+            {
+                twentyone.stop();
+                twentyone.release();
+                twentyone = null;
+                twentyone = MediaPlayer.create(MainActivity.this, R.raw.twentyone);
+            }
+            else if (twentytwo.isPlaying())
+            {
+                twentytwo.stop();
+                twentytwo.release();
+                twentytwo = null;
+                twentytwo = MediaPlayer.create(MainActivity.this, R.raw.twentytwo);
+            }
+            else if (twentythree.isPlaying())
+            {
+                twentythree.stop();
+                twentythree.release();
+                twentythree = null;
+                twentythree = MediaPlayer.create(MainActivity.this, R.raw.twentythree);
+            }
+            else if (twentyfour.isPlaying())
+            {
+                twentyfour.stop();
+                twentyfour.release();
+                twentyfour = null;
+                twentyfour = MediaPlayer.create(MainActivity.this, R.raw.twentyfour);
+            }
+            else if (twentyfive.isPlaying())
+            {
+                twentyfive.stop();
+                twentyfive.release();
+                twentyfive = null;
+                twentyfive = MediaPlayer.create(MainActivity.this, R.raw.twentyfive);
+            }
+            else if (twentysix.isPlaying())
+            {
+                twentysix.stop();
+                twentysix.release();
+                twentysix = null;
+                twentysix = MediaPlayer.create(MainActivity.this, R.raw.twentysix);
+            }
+            else if (twentyseven.isPlaying())
+            {
+                twentyseven.stop();
+                twentyseven.release();
+                twentyseven = null;
+                twentyseven = MediaPlayer.create(MainActivity.this, R.raw.twentyseven);
+            }
         } catch (Exception e)
         {
             e.printStackTrace();
@@ -253,6 +316,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         sixteen = MediaPlayer.create(MainActivity.this, R.raw.sixteen);
         seventeen = MediaPlayer.create(MainActivity.this, R.raw.seventeen);
         eighteen = MediaPlayer.create(MainActivity.this, R.raw.eighteen);
+        nineteen = MediaPlayer.create(MainActivity.this, R.raw.nineteen);
+        twenty = MediaPlayer.create(MainActivity.this, R.raw.twenty);
+        twentyone = MediaPlayer.create(MainActivity.this, R.raw.twentyone);
+        twentytwo = MediaPlayer.create(MainActivity.this, R.raw.twentytwo);
+        twentythree = MediaPlayer.create(MainActivity.this, R.raw.twentythree);
+        twentyfour = MediaPlayer.create(MainActivity.this, R.raw.twentyfour);
+        twentyfive = MediaPlayer.create(MainActivity.this, R.raw.twentyfive);
+        twentysix = MediaPlayer.create(MainActivity.this, R.raw.twentysix);
+        twentyseven = MediaPlayer.create(MainActivity.this, R.raw.twentyseven);
+
 
         button_1 = findViewById(R.id.button_1);
         button_1.setOnClickListener(new View.OnClickListener()
@@ -590,7 +663,170 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 if (isConnected && (!Analytics.isDeveloper))
                 {
-                    analytics.sendAnalytics(mContext, "17");
+                    analytics.sendAnalytics(mContext, "18");
+                }
+            }
+        });
+
+        button_19 = findViewById(R.id.button_19);
+        button_19.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                stopPlayingPlease();
+                nineteen.start();
+
+                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+                if (isConnected && (!Analytics.isDeveloper))
+                {
+                    analytics.sendAnalytics(mContext, "19");
+                }
+            }
+        });
+        button_20 = findViewById(R.id.button_20);
+        button_20.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                stopPlayingPlease();
+                twenty.start();
+
+                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+                if (isConnected && (!Analytics.isDeveloper))
+                {
+                    analytics.sendAnalytics(mContext, "20");
+                }
+            }
+        });
+        button_21 = findViewById(R.id.button_21);
+        button_21.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                stopPlayingPlease();
+                twentyone.start();
+
+                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+                if (isConnected && (!Analytics.isDeveloper))
+                {
+                    analytics.sendAnalytics(mContext, "21");
+                }
+            }
+        });
+        button_22 = findViewById(R.id.button_22);
+        button_22.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                stopPlayingPlease();
+                twentytwo.start();
+
+                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+                if (isConnected && (!Analytics.isDeveloper))
+                {
+                    analytics.sendAnalytics(mContext, "22");
+                }
+            }
+        });
+        button_23 = findViewById(R.id.button_23);
+        button_23.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                stopPlayingPlease();
+                twentythree.start();
+
+                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+                if (isConnected && (!Analytics.isDeveloper))
+                {
+                    analytics.sendAnalytics(mContext, "23");
+                }
+            }
+        });
+        button_24 = findViewById(R.id.button_24);
+        button_24.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                stopPlayingPlease();
+                twentyfour.start();
+
+                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+                if (isConnected && (!Analytics.isDeveloper))
+                {
+                    analytics.sendAnalytics(mContext, "24");
+                }
+            }
+        });
+        button_25 = findViewById(R.id.button_25);
+        button_25.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                stopPlayingPlease();
+                twentyfive.start();
+
+                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+                if (isConnected && (!Analytics.isDeveloper))
+                {
+                    analytics.sendAnalytics(mContext, "25");
+                }
+            }
+        });
+        button_26 = findViewById(R.id.button_26);
+        button_26.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                stopPlayingPlease();
+                twentysix.start();
+
+                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+                if (isConnected && (!Analytics.isDeveloper))
+                {
+                    analytics.sendAnalytics(mContext, "26");
+                }
+            }
+        });
+        button_27 = findViewById(R.id.button_27);
+        button_27.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                stopPlayingPlease();
+                twentyseven.start();
+
+                ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+                boolean isConnected = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+                if (isConnected && (!Analytics.isDeveloper))
+                {
+                    analytics.sendAnalytics(mContext, "27");
                 }
             }
         });
