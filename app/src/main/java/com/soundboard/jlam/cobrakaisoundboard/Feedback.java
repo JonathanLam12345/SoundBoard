@@ -52,32 +52,11 @@ public class Feedback extends AppCompatActivity implements NavigationView.OnNavi
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        if(Analytics.isDeveloper)   //Developer Ad
-        { //https://www.youtube.com/watch?v=w7muIkMYE_A
-            //test ad: ca-app-pub-3940256099942544/6300978111
-            //my admob: ca-app-pub-7448660774088972/5467742818
-
-            adView_user = (AdView) findViewById(R.id.adView_user);
-            adView_user.setVisibility(View.GONE);
-            adView_user.setVisibility(View.INVISIBLE);
-
-            MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
-            adView_developer = (AdView) findViewById(R.id.adView_developer);
-            AdRequest adRequest = new AdRequest.Builder().build();
-            adView_developer.loadAd(adRequest);
-        }
-        else    //User Ad
-        {
-            adView_developer = (AdView) findViewById(R.id.adView_developer);
-            adView_developer.setVisibility(View.GONE);
-            adView_developer.setVisibility(View.INVISIBLE);
-
-            MobileAds.initialize(this, "ca-app-pub-7448660774088972/5467742818");
-            adView_user = (AdView) findViewById(R.id.adView_user);
-            AdRequest adRequest = new AdRequest.Builder().build();
-            adView_user.loadAd(adRequest);
-        }
+       // MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
+      MobileAds.initialize(this, "ca-app-pub-7448660774088972/5467742818");
+        adView_user = (AdView) findViewById(R.id.adView_user);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView_user.loadAd(adRequest);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -145,15 +124,14 @@ public class Feedback extends AppCompatActivity implements NavigationView.OnNavi
 
         if (id == R.id.nav_feedback)
         {
-            Intent i = new Intent(getApplicationContext(), Feedback.class);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(i);
+
         }
         else if (id == R.id.nav_home)
         {
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(i);
+            overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
         }
 
 
@@ -214,6 +192,7 @@ public class Feedback extends AppCompatActivity implements NavigationView.OnNavi
         {
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
+            overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
             finish();
         }
     }

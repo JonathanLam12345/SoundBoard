@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- https://stackoverflow.com/a/16648643 -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+
+    <translate
+        android:duration="@android:integer/config_longAnimTime"
+        android:fromXDelta="100%p"
+        android:toXDelta="0"/>
+</set>

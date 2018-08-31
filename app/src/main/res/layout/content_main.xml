@@ -3,8 +3,8 @@
               xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              android:background="#000000 "
               android:orientation="vertical"
-
               app:layout_behavior="@string/appbar_scrolling_view_behavior"
               tools:context=".MainActivity"
               tools:showIn="@layout/app_bar_main">
@@ -167,7 +167,7 @@
                     android:layout_weight="1"
                     android:baselineAligned="false"
                     android:padding="3dip"
-                    android:text="Quiet! Trying to Run a Dojo Next Door!"/>
+                    android:text="Quiet!! Trying to Run a Dojo Next Door!!"/>
 
                 <Button
                     android:id="@+id/button_14"
@@ -191,6 +191,7 @@
             </TableRow>
 
             <TableRow>
+
                 <Button
                     android:id="@+id/button_16"
                     android:layout_width="70dp"
@@ -221,7 +222,9 @@
                     android:padding="3dip"
                     android:text="Fighting Positions!"/>
             </TableRow>
+
             <TableRow>
+
                 <Button
                     android:id="@+id/button_19"
                     android:layout_width="70dp"
@@ -252,7 +255,9 @@
                     android:padding="3dip"
                     android:text="I Had To Shed My Loser Skin"/>
             </TableRow>
+
             <TableRow>
+
                 <Button
                     android:id="@+id/button_22"
                     android:layout_width="70dp"
@@ -271,7 +276,7 @@
                     android:layout_weight="1"
                     android:baselineAligned="false"
                     android:padding="3dip"
-                    android:text="All That Matters Is That You Become Bada*s!!"/>
+                    android:text="Become Bada$$!!"/>
 
                 <Button
                     android:id="@+id/button_24"
@@ -283,7 +288,9 @@
                     android:padding="3dip"
                     android:text="Fear doesn't Exist In This Dojo!"/>
             </TableRow>
+
             <TableRow>
+
                 <Button
                     android:id="@+id/button_25"
                     android:layout_width="70dp"
@@ -334,8 +341,12 @@
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
             ads:adSize="BANNER"
-            ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+            ads:adUnitId="ca-app-pub-7448660774088972/5467742818">
         </com.google.android.gms.ads.AdView>
+
+        <!--  ads:adUnitId="ca-app-pub-3940256099942544/6300978111" -->
+        <!--  ads:adUnitId="ca-app-pub-7448660774088972/5467742818" -->
+
 
         <!-- (me) For developer: "ca-app-pub-3940256099942544/6300978111" -->
         <!-- ($$$) For User: "ca-app-pub-7448660774088972/5467742818" -->

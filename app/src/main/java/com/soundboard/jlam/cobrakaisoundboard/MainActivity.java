@@ -29,6 +29,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
@@ -268,19 +269,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         mContext = getApplicationContext();
 
-        TelephonyManager imei = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED)
-        {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_PHONE_STATE}, PERMISSION_READ_STATE);
-        }
 
         /////////////////////////////////////////////////////////////////////
         //https://www.youtube.com/watch?v=w7muIkMYE_A
         // (me) For developer: "ca-app-pub-3940256099942544/6300978111"
         //($$$) For User: "ca-app-pub-7448660774088972/5467742818"
 
-        MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
+        //MobileAds.initialize(this, "ca-app-pub-3940256099942544/6300978111");
+        MobileAds.initialize(this, "ca-app-pub-7448660774088972/5467742818");
         adView_developer = (AdView) findViewById(R.id.adView_developer);
         AdRequest adRequest = new AdRequest.Builder().build();
         adView_developer.loadAd(adRequest);
@@ -878,12 +874,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent i = new Intent(getApplicationContext(), Feedback.class);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(i);
+            overridePendingTransition(R.anim.trans_right_in, R.anim.trans_right_out);
         }
         else if (id == R.id.nav_home)
         {
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(i);
+
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -901,26 +896,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         else
         {
-            if (doubleBackToExitPressedOnce)
-            {
-                super.onBackPressed();
-                finish();
-                System.exit(0);
-                return;
-            }
-
-            this.doubleBackToExitPressedOnce = true;
-            Toast.makeText(this, "Click back again to exit.", Toast.LENGTH_SHORT).show();
-
-            new Handler().postDelayed(new Runnable()
-            {
-
-                @Override
-                public void run()
-                {
-                    doubleBackToExitPressedOnce = false;
-                }
-            }, 2000);
+            stopPlayingPlease();
+            Intent i = new Intent(getApplicationContext(), Login.class);
+            startActivity(i);
+            overridePendingTransition(R.anim.trans_left_in, R.anim.trans_left_out);
+            finish();
         }
     }
 }

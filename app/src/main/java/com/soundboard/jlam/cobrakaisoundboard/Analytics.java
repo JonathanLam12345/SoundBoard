@@ -13,7 +13,7 @@ public class Analytics
 {
 
     FirebaseAnalytics firebaseAnalytics;
-    public static boolean isDeveloper = true;
+    public static boolean isDeveloper = false;
 
     // 356339090890692 s9+
     // 351606080815920  ASUS

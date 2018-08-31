@@ -1,43 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                             android:layout_width="match_parent"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                >
+                android:background="#000009"
+    >
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_marginTop="23dp"
-        android:id="@+id/txtuser"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:hint="Username"
-        android:textSize="20sp" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_marginTop="22dp"
-        android:id="@+id/txtpass"
-        android:hint="Password"
-        android:textSize="20sp"
-        android:layout_below="@+id/txtuser"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+    <ImageView
+        android:id="@+id/imageView_Cobra"
+        android:layout_width="372dp"
+        android:layout_height="267dp"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/ic_cobrakai"/>
 
     <Button
-        android:text="Login"
-        android:layout_width="match_parent"
+        android:id="@+id/button_login"
+        android:layout_width="172dp"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView_Cobra"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:id="@+id/btnlogin"
-        android:textSize="20sp"
-        android:layout_below="@+id/txtpass"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:background="#FE0000"
+        android:text="Login"
+        android:textSize="20sp"/>
+
+   <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        android:layout_below="@+id/button_login"
+        ads:adUnitId="ca-app-pub-7448660774088972/5467742818">
+    </com.google.android.gms.ads.AdView>
 </RelativeLayout>
+
+    <!--  ads:adUnitId="ca-app-pub-3940256099942544/6300978111" -->
+    <!--  ads:adUnitId="ca-app-pub-7448660774088972/5467742818" -->
